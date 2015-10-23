@@ -5,12 +5,13 @@ from django.template import TemplateDoesNotExist
 from dbtemplates.models import Template
 from dbtemplates.utils.cache import (cache, get_cache_key,
                                      set_and_return, get_cache_notfound_key)
-from django.template.loader import BaseLoader
 
-# from django.template.base import Loader
-# django.template.loaders.base.Loader
+import django
 
-from django.template.loaders.base import Loader
+if django.VERSION < (1, 8):
+    from django.template.loader import BaseLoader as Loader
+else:
+    from django.template.loaders.base import Loader
 
 
 class Loader(Loader):
