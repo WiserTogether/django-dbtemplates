@@ -9,3 +9,4 @@ docs/_build
 .tox/
 *.egg/
 .coverage
+.idea/
